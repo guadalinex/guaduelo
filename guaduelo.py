@@ -96,10 +96,10 @@ class StarDustAnim(object):
         for d in dels:
             self.anims.remove(d)
     
-class Memory(object):
+class Guaduelo(object):
     def __init__(self):
         self.screen = pygame.display.set_mode((800, 600),1)
-        pygame.display.set_caption("Memory v1.0")
+        pygame.display.set_caption("Guaduelo v0.1")
                 
         self.loader = Loader()
                         
@@ -327,7 +327,7 @@ def main():
      
     pygame.init()
 
-    g = Memory()
+    g = Guaduelo()
     g.main_loop()
  
 if __name__ == '__main__': 
