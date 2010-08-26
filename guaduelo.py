@@ -99,11 +99,14 @@ class StarDustAnim(object):
 class Guaduelo(object):
     def __init__(self):
         self.screen = pygame.display.set_mode((800, 600),1)
+        # changing to fullscreen at startup
+        #pygame.display.toggle_fullscreen()
+
         pygame.display.set_caption("Guaduelo v0.1")
-                
+
         self.loader = Loader()
                         
-        self.game_board = GameBoard()        
+        self.game_board = GameBoard()
         self.side_panel = SidePanel()
         self.robot_mouse = RobotMouse() 
         self.ai_player = AIPlayer(3)
@@ -115,7 +118,7 @@ class Guaduelo(object):
         self.win_snd.set_volume(0.5)
         self.boom_snd = self.loader.load_sound("boom.wav")
         self.boom_snd.set_volume(0.3)
-        
+ 
         self.stardust = StarDustAnim()
         self.starburst = StarBurstAnim()
               
@@ -132,7 +135,7 @@ class Guaduelo(object):
         self.board.select_card(card)
         self.game_board.touch_card(card)
 
-    def main_loop(self):            
+    def main_loop(self): 
         clock = pygame.time.Clock()
 
         SETUP_NEW_GAME = 0
@@ -147,27 +150,29 @@ class Guaduelo(object):
         GAME_OVER = 98
         GAME_OVER_WAIT = 99
         START_SCREEN = 100
-    
+ 
         DELAY = 40
         state_delay = 0
-        
+ 
         state = START_SCREEN
-        
+ 
         next_player = 0
-        
+ 
         starburst_count = 0
 
         while 1:
             clock.tick(30)
-            
+ 
             mouse_clicked = False
-            mouse_pos = (0,0)            
+            mouse_pos = (0,0)
             for event in pygame.event.get():
                 if event.type == QUIT:
                     return
                 elif event.type == KEYDOWN:
                     if event.key == K_ESCAPE:
                         return
+
+                    # John's debug lines
                     #elif event.key == K_F1:
                     #    self.side_panel.player_score =18
                     #    self.side_panel.robot_score = 0
@@ -179,13 +184,22 @@ class Guaduelo(object):
                     #elif event.key == K_F3:
                     #    self.side_panel.player_score = 9
                     #    self.side_panel.robot_score = 9
-                    #    state = GAME_OVER 
+                    #    state = GAME_OVER
+
+                    # Toggle fullscreen
+                    elif event.key == K_F11:
+                        pygame.display.toggle_fullscreen()
+                    # jhernandez's debug lines
+                    #elif event.key == K_d:
+                    #
+ 
                 elif event.type == MOUSEBUTTONDOWN:
+                    # John's debug lines
                     #if event.button == 3:
                     #    self.starburst.add(event.pos)
                     if event.button == 1:
                         mouse_clicked = True
-                        mouse_pos = event.pos            
+                        mouse_pos = event.pos
                 
             # === STATE HANDLER ===
 
@@ -209,6 +223,7 @@ class Guaduelo(object):
                             self.side_panel.show_player(False)
                             state = PLAYER_SELECT_FIRST
                             next_player = 1
+
                 # --- PLAYER STATES ---
                 elif state == PLAYER_SELECT_FIRST and self.stardust.anim_done() and self.game_board.is_init_done() and mouse_clicked:
                     c = self.game_board.location_to_card(mouse_pos)
@@ -234,6 +249,8 @@ class Guaduelo(object):
                         state = ROBOT_SELECT_FIRST 
                     if self.board.is_game_over():
                         state = GAME_OVER
+
+
                 # --- ROBOT STATES ---
                 elif state == ROBOT_SELECT_FIRST and self.game_board.is_init_done():
                     c = self.ai_player.select_first_card()
@@ -268,6 +285,7 @@ class Guaduelo(object):
                         state = PLAYER_SELECT_FIRST 
                     if self.board.is_game_over():
                         state = GAME_OVER
+
                 # --- GAME OVER ---
                 elif state == GAME_OVER and self.stardust.anim_done():         
                     r = self.side_panel.show_winner()
