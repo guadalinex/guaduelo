@@ -124,8 +124,8 @@ class GameBoard(object):
         self.back.blit(self.cards2,r.topleft)
         
         y = 120-10
-        self._title("- Memory-",y); y+=50
-        self._text("Click anywhere to start",y)
+        self._title("- Guaduelo -",y); y+=50
+        self._text("Pincha en cualquier sitio para comenzar",y)
               
         y = 480
         r = 20
