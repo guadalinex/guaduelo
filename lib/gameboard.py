@@ -129,19 +129,19 @@ class GameBoard(object):
               
         y = 480
         r = 20
-        self._text2("Coding and graphics by John Eriksson",y); y+=r
-        self._text2("Photos by Jenny Eriksson",y); y+=r
-        self._text2("Testing by Jenny and Pelle Eriksson",y); y+=r
-        self._text2("Toys from Pelle and Rasmus collections",y); y+=r
-        self._text2("Fonts by Simsjeedy and Jakob Fischer",y); y+=r
+        #self._text2("Coding and graphics by John Eriksson",y); y+=r
+        #self._text2("Photos by Jenny Eriksson",y); y+=r
+        #self._text2("Testing by Jenny and Pelle Eriksson",y); y+=r
+        #self._text2("Toys from Pelle and Rasmus collections",y); y+=r
+        #self._text2("Fonts by Simsjeedy and Jakob Fischer",y); y+=r
 
     def render_gameover(self,result):
         self.back.blit(self.desk,(0,0))
         y = 275 
         x = 300
-        t = ["Both win!","You win!","Robot win!"]
+        t = ["Empate!","Ganaste!","Perdiste!"]
         self._title(t[result],y,x); y+=50
-        self._text("Click anywhere to play again",y,x)
+        self._text("Pulsa el raton para volver a jugar!",y,x)
           
     def set_board(self,cards):
         self.gfxcards = []
