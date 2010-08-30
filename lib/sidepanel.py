@@ -19,7 +19,7 @@ class SidePanel(object):
 
         self.side = self.loader.load_image("side.png",True)
         self.back = self.side.copy()
-        self.text(0,"Score",30)
+        self.text(0,"Puntos",25)
         
         self.robot = self.loader.load_image("robot.png",True)
         self.player = self.loader.load_image("player.png",True)
@@ -106,7 +106,7 @@ class SidePanel(object):
         r = pygame.Rect(50,54,126,129)
         self.back.blit(self.side,r.topleft,r)
         
-        self.text(1,"Player",75)
+        self.text(1,"Jugador",75)
         self.text(0,str(self.player_score),75+25)
 
         self.text(1,"Robot",75+60)
@@ -118,10 +118,10 @@ class SidePanel(object):
         
         y = 500
         r = 22
-        self.text(2,"Games: %d" % self.games_stat,y); y+=r
-        self.text(2,"Player: %d" % self.player_stat,y); y+=r
+        self.text(2,"Partidas: %d" % self.games_stat,y); y+=r
+        self.text(2,"Jugador: %d" % self.player_stat,y); y+=r
         self.text(2,"Robot: %d" % self.robot_stat,y); y+=r
-        self.text(2,"AI Level: %d" % self.ai_level,y); y+=r
+        self.text(2,"Nivel: %d" % self.ai_level,y); y+=r
 
     def text(self,fnt,txt,y,x=None):
         color = (0,0,0)
