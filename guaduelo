@@ -159,6 +159,8 @@ class Guaduelo(object):
  
         starburst_count = 0
 
+        ctrl_pushed = False 
+
         while 1:
             clock.tick(30)
 
@@ -167,9 +169,20 @@ class Guaduelo(object):
             for event in pygame.event.get():
                 if event.type == QUIT:
                     return
+                elif event.type == KEYUP and event.key == K_LCTRL:
+                    ctrl_pushed = False
                 elif event.type == KEYDOWN:
                     if event.key in [K_ESCAPE, K_q]:
                         return
+                    if event.key == K_LCTRL:
+                        ctrl_pushed = True
+                    if ctrl_pushed:
+                        if event.type == KEYDOWN and event.key == K_r:
+                            self.game_board.goto_game()
+                            self.setup_new_game()
+                            state = SETUP_NEW_GAME
+                            self.starburst.stop()
+                            ctrl_pushed = False
 
                     # John's debug lines
                     #elif event.key == K_F1:
