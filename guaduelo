@@ -119,6 +119,8 @@ class Guaduelo(object):
         self.win_snd.set_volume(0.5)
         self.boom_snd = self.loader.load_sound("boom.wav")
         self.boom_snd.set_volume(0.3)
+        self.applause_snd = self.loader.load_sound("applause.wav")
+        self.applause_snd.set_volume(0.5)
  
         self.stardust = StarDustAnim()
         self.starburst = StarBurstAnim()
@@ -152,6 +154,8 @@ class Guaduelo(object):
  
         DELAY = 40
         state_delay = 0
+
+        AWARDS = (0, 1, 2, 3)
  
         state = START_SCREEN
  
@@ -253,9 +257,13 @@ class Guaduelo(object):
                         self.side_panel.player_score+=1
                         self.side_panel.update_score()
                         state = PLAYER_SELECT_FIRST
-                        self.pair_snd.play() 
+                        if p.type in AWARDS:
+                            self.applause_snd.play()
+                        else:
+                            self.pair_snd.play() 
                     else:
                         state = PLAYER2_SELECT_FIRST 
+                        self.side_panel.show_robot(False,0,0)
                     if self.board.is_game_over():
                         state = GAME_OVER
 
@@ -276,12 +284,16 @@ class Guaduelo(object):
                     if pair:
                         for p in pair:
                             self.stardust.add(self.game_board.card_to_location(p))
-                        self.side_panel.player_score+=1
+                        self.side_panel.robot_score+=1
                         self.side_panel.update_score()
                         state = PLAYER2_SELECT_FIRST
-                        self.pair_snd.play() 
+                        if p.type in AWARDS:
+                            self.applause_snd.play()
+                        else:
+                            self.pair_snd.play() 
                     else:
-                        state = PLAYER_SELECT_FIRST 
+                        state = PLAYER_SELECT_FIRST
+                        self.side_panel.show_player(False)
                     if self.board.is_game_over():
                         state = GAME_OVER
 
