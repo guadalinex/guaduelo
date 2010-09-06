@@ -106,10 +106,10 @@ class SidePanel(object):
         r = pygame.Rect(50,54,126,129)
         self.back.blit(self.side,r.topleft,r)
         
-        self.text(1,"Jugador",75)
+        self.text(1,"Jugador 1",75)
         self.text(0,str(self.player_score),75+25)
 
-        self.text(1,"Robot",75+60)
+        self.text(1,"Jugador 2",75+60)
         self.text(0,str(self.robot_score),75+25+60)
         
     def update_stats(self):
@@ -119,9 +119,9 @@ class SidePanel(object):
         y = 500
         r = 22
         self.text(2,"Partidas: %d" % self.games_stat,y); y+=r
-        self.text(2,"Jugador: %d" % self.player_stat,y); y+=r
-        self.text(2,"Robot: %d" % self.robot_stat,y); y+=r
-        self.text(2,"Nivel: %d" % self.ai_level,y); y+=r
+        self.text(2,"Jugador 1: %d" % self.player_stat,y); y+=r
+        self.text(2,"Jugador 2: %d" % self.robot_stat,y); y+=r
+        #self.text(2,"Nivel: %d" % self.ai_level,y); y+=r
 
     def text(self,fnt,txt,y,x=None):
         color = (0,0,0)
