@@ -126,7 +126,7 @@ class Award(pygame.sprite.Sprite):
     def zoom(self):
         self.image, self.rect = self.load_image(self.award_id, -1)
         self.rect.midtop = (320, 30)
-        zoom = pygame.transform.rotozoom
+
         if self.zoom_amount >= 1.6:
             self.achieved = False
             pygame.time.wait(8000)
@@ -134,7 +134,8 @@ class Award(pygame.sprite.Sprite):
             self.zoom_amount = 0
             self.rotation_amount = 0
         else:
-            self.image = pygame.transform.rotozoom(self.image, 0, self.zoom_amount)
+            zoom = pygame.transform.rotozoom
+            self.image = zoom(self.image, 0, self.zoom_amount)
 
     def load_image(self, award_id, colorkey=None):
         if award_id == None: award_id = None 
@@ -301,7 +302,11 @@ class Guaduelo(object):
                 elif not award.achieved and len(awardlist) != 0:
                     awardlist.pop()
                 # --- PLAYER STATES ---
-                elif state == PLAYER_SELECT_FIRST and self.stardust.anim_done() and self.game_board.is_init_done() and mouse_clicked:
+                elif state == PLAYER_SELECT_FIRST and \
+                    self.stardust.anim_done() and \
+                    self.game_board.is_init_done() and \
+                    mouse_clicked:
+
                     c = self.game_board.location_to_card(mouse_pos)
                     if c and not c.selected:
                         self.select_card(c)
@@ -471,9 +476,10 @@ class Guaduelo(object):
             self.stardust.draw(self.screen)
             self.starburst.draw(self.screen)
 
-            if award.achieved:
-                awardsprites.draw(self.screen)
+            if award.achieved and not state == GAME_OVER_WAIT:
                 awardsprites.update()
+                awardsprites.draw(self.screen)
+
             
             pygame.display.flip()            
 
