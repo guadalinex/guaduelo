@@ -53,7 +53,7 @@ class GameBoard(object):
         self.gfxcards_hidden = []
         self.delay = 0
 
-        self.title_fnt = self.loader.load_font("KLEPTOMA.TTF", 60) 
+        self.title_fnt = self.loader.load_font("KLEPTOMA.TTF", 50) 
         self.text_fnt = self.loader.load_font("scribble.TTF", 24) 
         self.small_text_fnt = self.loader.load_font("scribble.TTF", 15) 
 
@@ -139,7 +139,9 @@ class GameBoard(object):
         self.back.blit(self.desk,(0,0))
         y = 275 
         x = 300
-        t = ["Empate!","Ganaste!","Perdiste!"]
+        t = ["Empate!","Jugador Uno!","Jugador Dos!"]
+        if t[result] != t[0]:
+            self._title('Bien',y - 80,x)
         self._title(t[result],y,x); y+=50
         self._text("Pulsa el raton para volver a jugar!",y,x)
           
