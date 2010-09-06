@@ -447,6 +447,9 @@ class Guaduelo(object):
                     state = GAME_OVER_WAIT
                     starburst_count = 40
                     starburst_delay = 0
+                    # Award animation will not been shown
+                    # by setting achieved to False
+                    award.achieved = False
                 elif state == GAME_OVER_WAIT:
                     if mouse_clicked:         
                         self.game_board.goto_game()
@@ -476,7 +479,7 @@ class Guaduelo(object):
             self.stardust.draw(self.screen)
             self.starburst.draw(self.screen)
 
-            if award.achieved and not state == GAME_OVER_WAIT:
+            if award.achieved:
                 awardsprites.update()
                 awardsprites.draw(self.screen)
 
