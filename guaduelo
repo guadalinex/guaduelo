@@ -3,6 +3,7 @@
 
 import pygame
 from pygame.locals import *
+from pygame.compat import geterror
 import random 
 from pprint import pprint
 
@@ -144,7 +145,7 @@ class Award(pygame.sprite.Sprite):
             image = pygame.image.load(fullname)
         except pygame.error:
             print ('Cannot load image:', fullname)
-            #raise SystemExit(str(geterror()))
+            raise SystemExit(str(geterror()))
         image = image.convert()
         if colorkey is not None:
             if colorkey is -1:
@@ -335,15 +336,6 @@ class Guaduelo(object):
                         self.side_panel.player_score+=1
                         self.side_panel.update_score()
                         state = PLAYER_SELECT_FIRST
-                        #if p.type in AWARDS:
-                        #    self.applause_snd.play()
-                        #    # here, show the award!
-                        #    award = Award(p.type)
-                        #    awardlist.append(award)
-                        #    awardsprites.add(award)
-                        #    award.achieve = True
-                        #else:
-                        #    self.pair_snd.play()
                     else:
                         state = PLAYER2_SELECT_FIRST
                         self.side_panel.show_robot(False,0,0)
@@ -380,14 +372,6 @@ class Guaduelo(object):
                         self.side_panel.robot_score+=1
                         self.side_panel.update_score()
                         state = PLAYER2_SELECT_FIRST
-                        #if p.type in AWARDS:
-                        #    self.applause_snd.play()
-                        #    award = Award(p.type)
-                        #    awardlist.append(award)
-                        #    awardsprites.add(award)
-                        #    award.achieve = True
-                        #else:
-                        #    self.pair_snd.play() 
                     else:
                         state = PLAYER_SELECT_FIRST
                         self.side_panel.show_player(False)
