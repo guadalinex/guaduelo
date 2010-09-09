@@ -1,0 +1,33 @@
+This work was packaged for Debian by:
+
+    Javier Hernández Antúnez <jhernandez@emergya.es> on Wed, 08 Sep 2010 14:55:47 +0200
+
+It was downloaded from http://forja.guadalinex.org/projects/guaduelo
+
+Upstream Author(s):
+
+    Javier Hernández Antúnez <jhernandez@emergya.es>
+
+Copyright:
+
+    Copyright (C) 2010 Junta de Andalucía <packmaster@guadalinex.org>
+
+License:
+
+    GPL-3
+
+The Debian packaging is:
+
+    Copyright (C) 2010 Junta de Andalucía <packmaster@guadalinex.org>
+
+# Please chose a license for your packaging work. If the program you package
+# uses a mainstream license, using the same license is the safest choice.
+# Please avoid to pick license terms that are more restrictive than the
+# packaged work, as it may make Debian's contributions unacceptable upstream.
+# If you just want it to be GPL version 3, leave the following lines in.
+
+and is licensed under the GPL version 3, 
+see `/usr/share/common-licenses/GPL-3'.
+
+# Please also look if there are files or directories which have a
+# different copyright/license attached and list them here.

@@ -1,0 +1,15 @@
+Source: guaduelo
+Section: games
+Priority: extra
+Maintainer: Guadalinex Team <packmaster@guadalinex.org>
+Uploaders: Javier Hernández Antúnez <jhernandez@emergya.es>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.8.3
+Homepage: http://forja.guadalinex.org/projects/guaduelo
+
+Package: guaduelo
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Guaduelo, the memory card game
+ Simple memory game that consists in make card pairs.
+ Guaduelo was developed using pygame.
