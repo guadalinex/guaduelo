@@ -9,7 +9,7 @@ Homepage: http://forja.guadalinex.org/projects/guaduelo
 
 Package: guaduelo
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-pygame
 Description: Guaduelo, the memory card game
  Simple memory game that consists in make card pairs.
  Guaduelo was developed using pygame.
