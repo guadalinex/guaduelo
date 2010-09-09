@@ -8,7 +8,6 @@ Build-Depends: debhelper (>= 7), cdbs (>= 0.4.43),
  
 Standards-Version: 3.8.3
 Homepage: http://forja.guadalinex.org/projects/guaduelo
-
 Package: guaduelo
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, python-pygame
