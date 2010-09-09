@@ -160,7 +160,7 @@ class Guaduelo(object):
         # changing to fullscreen at startup
         #pygame.display.toggle_fullscreen()
 
-        pygame.display.set_caption("Guaduelo v0.1")
+        pygame.display.set_caption("Guaduelo v0.2")
 
         self.loader = Loader()
                         

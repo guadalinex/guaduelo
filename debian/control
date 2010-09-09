@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Guadalinex Team <packmaster@guadalinex.org>
 Uploaders: Javier Hernández Antúnez <jhernandez@emergya.es>
 Build-Depends: debhelper (>= 7), cdbs (>= 0.4.43), 
- python-distutils-extra (>= 2.10), python-support (>= 0.6.4),
+ python-distutils-extra (>= 2.10), python-support (>= 0.6.4)
  
 Standards-Version: 3.8.3
 Homepage: http://forja.guadalinex.org/projects/guaduelo
