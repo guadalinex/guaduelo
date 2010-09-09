@@ -6,7 +6,7 @@ from pygame.locals import *
 import random 
 from pprint import pprint
 
-from lib.loader import Loader
+from lib.loader import Loader, BASE_DIR
 from lib.board import Card, Board
 from lib.ai import AIPlayer
 from lib.gameboard import GameBoard
@@ -139,7 +139,7 @@ class Award(pygame.sprite.Sprite):
 
     def load_image(self, award_id, colorkey=None):
         if award_id == None: award_id = None 
-        fullname = os.path.join('data', 'img', str(award_id) + '_award.png')
+        fullname = os.path.join(BASE_DIR, 'img', str(award_id) + '_award.png')
         try:
             image = pygame.image.load(fullname)
         except pygame.error:
