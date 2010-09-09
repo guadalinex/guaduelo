@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=0.2
+Name=Guaduelo
+GenericName=Game
+Comment=Simple memory game that consists in make card pairs.
+Exec=guaduelo
+Icon=guaduelo
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Game;BoardGame;
